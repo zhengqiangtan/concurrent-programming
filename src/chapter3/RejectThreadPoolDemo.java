@@ -3,7 +3,7 @@ package chapter3;
 import java.util.concurrent.*;
 
 /**
- * 自定义拒绝策略
+ * 自定义线程池拒绝策略
  */
 public class RejectThreadPoolDemo {
     public static class MyTask implements Runnable {
@@ -48,7 +48,7 @@ public class RejectThreadPoolDemo {
         });
 
         for (int i = 0; i < 100; i++) {
-            executorService.submit(myTask);
+            executorService.execute(myTask);
             Thread.sleep(10);
         }
     }
